@@ -1,0 +1,9 @@
+{
+  "type": "module",
+  "scripts": {
+    "getDataFromWowhead": "node src/getData.js"
+  },
+  "dependencies": {
+    "puppeteer": "^23.6.0"
+  }
+}
