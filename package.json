@@ -1,9 +1,11 @@
 {
   "type": "module",
   "scripts": {
-    "getDataFromWowhead": "node src/getData.js"
+    "getRawDayData": "node src/getRawDayData/main.js",
+    "getEventData": "node src/getEventData/main.js"
   },
   "dependencies": {
+    "fs": "0.0.1-security",
     "puppeteer": "^23.6.0"
   }
 }

@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      fs:
+        specifier: 0.0.1-security
+        version: 0.0.1-security
       puppeteer:
         specifier: ^23.6.0
         version: 23.6.0
@@ -206,6 +209,9 @@ packages:
   fs-extra@11.2.0:
     resolution: {integrity: sha512-PmDi3uwK5nFuXh7XDTlVnS17xJS7vW36is2+w3xcv8SVxiB4NyATf4ctkVY5bkSjX0Y4nbvZCq1/EjtEyr9ktw==}
     engines: {node: '>=14.14'}
+
+  fs@0.0.1-security:
+    resolution: {integrity: sha512-3XY9e1pP0CVEUCdj5BmfIZxRBTSDycnbqhIOGec9QYtmVH2fbLpj86CFWkrNOkt/Fvty4KZG5lTglL9j/gJ87w==}
 
   get-caller-file@2.0.5:
     resolution: {integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==}
@@ -655,6 +661,8 @@ snapshots:
       graceful-fs: 4.2.11
       jsonfile: 6.1.0
       universalify: 2.0.1
+
+  fs@0.0.1-security: {}
 
   get-caller-file@2.0.5: {}
 
