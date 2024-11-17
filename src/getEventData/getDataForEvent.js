@@ -15,7 +15,7 @@ export const getDataForEvent = async (page, eventId) => {
       });
 
     // Get the background image
-    const backgroundImage = await page.evaluate(() => {
+    let backgroundImage = await page.evaluate(() => {
       const selector = 'div.iconmedium > ins';
       const element = document.querySelector(selector);
       if (!element)
@@ -25,6 +25,9 @@ export const getDataForEvent = async (page, eventId) => {
       const style = getComputedStyle(element);
       return style.backgroundImage;
     });
+    backgroundImage = backgroundImage
+      ? backgroundImage.replace('url("', '').replace('")', '')
+      : undefined;
 
     // Get the start and end times
     const times = await page.evaluate(() => {
@@ -39,9 +42,17 @@ export const getDataForEvent = async (page, eventId) => {
       const start = elements.find((el) => el.textContent.startsWith('Start:'));
       const end = elements.find((el) => el.textContent.startsWith('End:'));
 
+      const startTime = start
+        ? start.textContent.substring(start.textContent.indexOf('at') + 3)
+        : null;
+
+      const endTime = end
+        ? end.textContent.substring(end.textContent.indexOf('at') + 3)
+        : null;
+
       return {
-        startTime: start ? start.textContent.replace('Start: ', '') : null,
-        endTime: end ? end.textContent.replace('End: ', '') : null,
+        startTime,
+        endTime,
       };
     });
 
